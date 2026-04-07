@@ -1,0 +1,11 @@
+#models/staging/stripe/schema.yml
+
+version: 1
+
+sources:
+  - name: stripe
+    catalog: raw
+    schema: stripe
+    tables:
+      - name: payments
+
