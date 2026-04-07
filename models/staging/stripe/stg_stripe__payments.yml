@@ -1,0 +1,18 @@
+models:
+- name: stg_stripe__payments
+  description: This model consolidates payment data from Stripe, providing a comprehensive
+    view of payment transactions, including details such as payment method, status,
+    and amount.
+  columns:
+  - name: payment_id
+    description: A unique identifier for each payment transaction. this is also the Primary Key.
+  - name: order_id
+    description: The identifier for the order associated with the payment. FK to stg_orders.order_id
+  - name: payment_method
+    description: The method used for the payment, such as credit card or PayPal.
+  - name: payment_status
+    description: "{{ doc('payment_status') }}"
+  - name: payment_amount
+    description: The total amount of the payment transaction.
+  - name: payment_creation
+    description: The date when the payment was created.

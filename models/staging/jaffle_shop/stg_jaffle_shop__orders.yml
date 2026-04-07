@@ -1,14 +1,18 @@
 models:
   - name: stg_jaffle_shop__orders
+    description: This model represents the staging table for orders in the Jaffle Shop. It is used to prepare and clean order data before it is transformed and loaded into the final analytics tables. This includes ensuring data quality and consistency for order records.
     columns:
       - name: order_id
+        description: A unique identifier for each order. This is also the primary key.
         tests:
           - unique
           - not_null
       - name: order_date
+        description: The date when the order was placed.
         tests:
           - not_null        
       - name: status
+        description: "{{ doc('order_status') }}"
         tests:
           - not_null
           - accepted_values:
@@ -20,9 +24,12 @@ models:
                   - shipped
                   - placed
       - name: customer_id
+        description: The identifier for the customer who placed the order. Foreign key to stg_customers.customer_id
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('stg_jaffle_shop__customers')
                 field: customer_id
+      - name: _etl_loaded_at
+        description: The timestamp indicating when the order record was loaded into the ETL process.
