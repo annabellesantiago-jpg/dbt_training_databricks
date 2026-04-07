@@ -2,8 +2,10 @@ sources:
   - name: jaffle_shop
     database: raw
     schema: jaffle_shop
+    description: this is a copy of Postgres database
     tables:
       - name: customers
+        description: contains raw data for customers. grain for this is one unique customer per row
         config:
           freshness: null
         columns:
@@ -14,6 +16,7 @@ sources:
               - not_null
               
       - name: orders
+        description: contains raw data for orders. grain for this is one unique order per row
         columns:
           - name: id 
             description: primary key
