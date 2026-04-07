@@ -1,6 +1,6 @@
 sources:
   - name: jaffle_shop
-    catalog: raw
+    database: raw
     schema: jaffle_shop
     tables:
       - name: customers
